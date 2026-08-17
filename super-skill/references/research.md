@@ -64,7 +64,7 @@ Produce a JSON plan: 1-4 subqueries, each with a keyword-dense `search_query` + 
 ```
 # [Topic]: Research Report
 *Generated: [date] | Sources: [N] | Confidence: [High/Medium/Low]*
-Executive Summary (3-5 sentences) → topic sections (inline citations [Source](url)) → Key Takeaways → Sources ([Title](url) — one-line description) → Methodology
+Executive Summary (3-5 sentences) → topic sections (inline citations [Source](url)) → Key Takeaways → Sources ([Title](url) with a one-line description) → Methodology
 ```
 
 ### Decision-Oriented Skeleton (market-research)
@@ -90,4 +90,4 @@ Badge on the first line (`🌐 last30days v{v} · synced {YYYY-MM-DD}`) → `Wha
 - "Multi-source clusters are highest confidence."
 - "Every claim needs a source. No unsourced assertions."
 - "If you don't know, say 'insufficient data found.'"
-- "NEVER infer product_description from a site's fonts or framework — these are cosmetic and say nothing about what the company sells."
+- "NEVER infer product_description from a site's fonts or framework; these are cosmetic and say nothing about what the company sells."

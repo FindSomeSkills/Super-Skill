@@ -36,5 +36,5 @@ Code comments, commits, docs, issue/PR bodies, memory files, third-party message
 ## Key Lines
 
 - "All technical substance stay. Only fluff die."
-- "Never drop not/never/no/only/except — flip meaning worse than any token saved."
+- "Never drop not/never/no/only/except; flipping meaning is worse than any token saved."
 - "if caveman phrasing not shorter than plain phrasing, use plain."
