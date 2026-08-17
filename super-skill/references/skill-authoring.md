@@ -23,6 +23,10 @@ A reusable, task-specific instruction package: a folder containing `SKILL.md` (Y
 - Multi-domain skills organize references by variant (aws.md/gcp.md/azure.md); "Claude reads only the relevant reference file".
 - Large references (>300 lines) come with a table of contents; keep SKILL.md under 500 lines.
 
+## Audience and Platform Coverage (public docs)
+
+When writing a README, install guide, or any document aimed at the public, assume the reader can be on any operating system (Windows, macOS, Linux) and any agent (Claude Code, Codex, DSH, Cursor, Gemini CLI). Never write commands or paths that only work on the author's own environment. Give the install or usage commands for every mainstream platform and every supported agent; state explicitly when a format is cross-platform. The reader is unknown, so the document must not assume the reader's environment equals the author's.
+
 ## Writing Style
 
 - Use the imperative mood; **"explain why" replaces ALL-CAPS MUST**: "Try to explain to the model why things are important in lieu of heavy-handed musty MUSTs."
