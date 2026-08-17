@@ -1,35 +1,35 @@
 # super-skill
 
-一个给 AI 编码代理用的技能包。把 GitHub 上能找到的、各领域被验证过的 agent skills 读了一遍，挑出反复出现的共识，融成一套可执行的规则。
+A skill package for AI coding agents. It reads the agent skills that have been proven across domains on GitHub, picks out the recurring consensus, and turns it into a set of executable rules.
 
-现在的内容来自 1865 个 SKILL.md 的提炼，主要来源：
+The current content distills 1865 SKILL.md files. Main sources:
 
-| 仓库 | 主题 |
+| Repository | Topic |
 |---|---|
-| affaan-m/ECC | 代理运行系统、证据链、机械门禁 |
-| obra/superpowers | 计划、TDD、调试、代码审查的纪律 |
-| anthropics/skills | 文档技能、技能创作规范 |
-| addyosmani/agent-skills | 上下文工程、怀疑驱动开发 |
-| trailofbits/skills | 安全审计方法论 |
-| tw93/Waza | 工程习惯 |
-| multica-ai/andrej-karpathy-skills | LLM 编码陷阱与反制 |
-| JuliusBrussee/caveman | token 经济学 |
-| Leonxlnx/taste-skill | 设计品味、反 AI 味 |
-| nextlevelbuilder/ui-ux-pro-max-skill | UI/UX 设计智能 |
-| mvanhorn/last30days-skill | 时效性研究 |
-| ComposioHQ/awesome-claude-skills | 工作流技能 |
-| vercel-labs/agent-skills | 官方团队技能写法 |
+| affaan-m/ECC | Agent harness operating system, evidence chains, mechanical gates |
+| obra/superpowers | Discipline for planning, TDD, debugging, code review |
+| anthropics/skills | Document skills, skill authoring guidelines |
+| addyosmani/agent-skills | Context engineering, doubt-driven development |
+| trailofbits/skills | Security audit methodology |
+| tw93/Waza | Engineering habits |
+| multica-ai/andrej-karpathy-skills | LLM coding pitfalls and countermeasures |
+| JuliusBrussee/caveman | Token economy |
+| Leonxlnx/taste-skill | Design taste, anti-AI-slop |
+| nextlevelbuilder/ui-ux-pro-max-skill | UI/UX design intelligence |
+| mvanhorn/last30days-skill | Recency research |
+| ComposioHQ/awesome-claude-skills | Workflow skills |
+| vercel-labs/agent-skills | Official team skill writing style |
 
-## 里面有什么
+## What is inside
 
-- `SKILL.md`：12 条通用操作原则，任何任务都适用。包括思考先于行动、简单优先、外科手术式修改、证据先于宣称、先根因后修复、外部输入不可信、上下文预算、token 经济学、反 AI 味、防幻觉、安全基线。
-- `references/`：13 个领域工作流，按任务类型读取。编码、调试、代码审查、研究、写作、文档、安全、设计、验证、token 精简、记忆、技能创作、Web 测试。
+- `SKILL.md`: 12 universal operating principles that apply to any task. Think before acting, simplicity first, surgical changes, evidence before claims, root cause before fix, untrusted external input, context budget, token economy, anti-AI-slop, anti-hallucination, security baseline.
+- `references/`: 13 domain workflows, loaded by task type. Coding, debugging, code review, research, writing, documents, security, design, verification, token economy, memory, skill authoring, web testing.
 
-设计原则：正文只放原则和路由，深度放在 references 里按需加载。不把整个仓库塞进每次会话的上下文。
+Design principle: the main file holds principles and routing only; depth lives in references and is loaded on demand. It does not stuff the whole repository into every session's context.
 
-## 怎么用
+## How to use
 
-格式与 Claude Code 的 SKILL.md 兼容（YAML frontmatter + Markdown 正文）。放到对应代理的技能目录即可：
+The format is compatible with Claude Code SKILL.md (YAML frontmatter plus Markdown body). Drop it into your agent's skills directory:
 
 ```bash
 # DeepSeek Harness
@@ -39,12 +39,12 @@ cp -R super-skill ~/.dsh/skills/
 cp -R super-skill ~/.claude/skills/
 ```
 
-技能目录会自动热更新，新会话直接可用。任务涉及多步骤、代码、研究或交付物时，代理会先读这个技能。
+The skills directory hot-reloads, so new sessions pick it up directly. When a task involves multiple steps, code, research, or a deliverable, the agent reads this skill first.
 
-## 引用
+## Attribution
 
-每条规则尽量保留原文出处。写进 playbook 的关键句都来自上面列出的仓库，没有编造。
+Each rule keeps its original source where possible. The key quotes written into the playbooks all come from the repositories listed above; nothing is fabricated.
 
-## 许可
+## License
 
-MIT。融合的原始技能各有其许可证，详见各来源仓库。
+MIT. The fused source skills have their own licenses; see each source repository.

@@ -1,66 +1,66 @@
-# Verification Playbook：验证与完成
+# Verification Playbook: Verification and Completion
 
-> 融合：obra/superpowers（证据铁律）、ECC verification-loop/delivery-gate（机械门禁）、addyosmani（上线门禁）。
+> Blends: obra/superpowers (evidence iron rule), ECC verification-loop/delivery-gate (mechanical gates), addyosmani (shipping gate).
 
-## 证据铁律
+## Evidence Iron Rules
 
-- 没有在**同一条消息里**运行完整命令并读到输出，就不能声称通过。
-- 禁止 "should/probably/seems to"；禁止在验证前说 "Done!"。
-- agent 报告成功 ≠ 完成：查 VCS diff 独立核实。
-- 回归测试要红绿循环：写→过→回退修复必须失败→恢复→过。
+- You cannot claim something passes unless you ran the full command **in the same message** and read the output.
+- No "should/probably/seems to"; no "Done!" before verifying.
+- An agent reporting success is not completion: independently check the VCS diff.
+- Regression tests run the red-green loop: write -> pass -> revert the fix and the test must fail -> restore -> pass.
 
-### 反合理化表（Rationalizations to Reject）
+### Rationalizations to Reject
 
-| 借口 | 现实 |
+| Excuse | Reality |
 |---|---|
-| "Too simple to test" | Simple code breaks. 简单代码一样会坏。 |
-| "Small PR, quick review" | Heartbleed 只有 2 行。按风险分类，不按规模。 |
+| "Too simple to test" | Simple code breaks. |
+| "Small PR, quick review" | Heartbleed was 2 lines. Classify by risk, not size. |
 | "Keep as reference" | You'll adapt it. Delete means delete. |
-| "I remember this skill" | Skills evolve. 读当前版本。 |
-| "skip tests for now" | 门禁警告：不验证就宣称完成是违规。 |
+| "I remember this skill" | Skills evolve. Read the current version. |
+| "skip tests for now" | Gate warning: declaring completion without verification is a violation. |
 | "This doesn't need a formal plan" | Planning is the task; implementation without a plan is just typing. |
-| "I'll clean this up later" | "我以后再清理"不可接受——现在清理或记录为任务。 |
-| "I feel like it works" | 感觉不是证据。跑命令读输出。 |
+| "I'll clean this up later" | Not acceptable: clean it up now or record it as a task. |
+| "I feel like it works" | Feelings are not evidence. Run the command and read the output. |
 
-## 收工六阶段验证（ECC verification-loop）
+## Six-Phase Wrap-Up Verification (ECC verification-loop)
 
-1. build（构建通过）→ 2. type（类型检查）→ 3. lint → 4. test（覆盖率 80%+）→ 5. security 扫描 → 6. diff 复核。
-产出 VERIFICATION REPORT：READY / NOT READY for PR。长会话每 15 分钟设心理检查点。
+1. build (build passes) -> 2. type (type check) -> 3. lint -> 4. test (coverage 80%+) -> 5. security scan -> 6. diff review.
+Produce a VERIFICATION REPORT: READY / NOT READY for PR. In long sessions, set a mental checkpoint every 15 minutes.
 
-## 机械门禁（delivery-gate 理念）
+## Mechanical Gates (delivery-gate idea)
 
-- 机械门禁检查机器可验证事实，不信自我报告——"same pattern as CI pipeline gates."
-- 合理化模式正则拦截："skip tests for now" 仅警告。
-- 复杂度阈值之上必须完成验证报告才能宣告完成。
-- 决策收集铁律：**禁止静默替用户选择**——逐项独立列出+推荐+理由+备选，绝不打包"全部 OK 吗"。
-- **自检→修复→再汇报**：任何质检结论必须先按 fail 项改完产出再汇报——"直接拿原始结论汇报但不修复 = 违规"。
+- Mechanical gates check machine-verifiable facts, not self-reports: "same pattern as CI pipeline gates."
+- Rationalization patterns get regex-intercepted: "skip tests for now" only warns.
+- Above a complexity threshold, the verification report must be complete before declaring completion.
+- Decision collection iron rule: **never silently choose for the user**: list each item independently with recommendation + rationale + alternatives; never bundle them into "is everything OK?".
+- **Self-check -> fix -> re-report**: any quality finding must be applied to the artifact per the failing items before reporting. "Reporting raw findings without fixing = violation."
 
-## 上线门禁（Addy shipping-and-launch）
+## Shipping Gate (Addy shipping-and-launch)
 
-### 预发布清单（六域）
-代码质量 / 安全 / 性能 / 可访问性 / 基础设施 / 文档。
+### Pre-Release Checklist (Six Domains)
+Code quality / security / performance / accessibility / infrastructure / docs.
 
-### Feature flag 生命周期
-OFF 部署 → 内部 → 5% → 25% → 50% → 100% → 清理。flag 要有 owner 和过期日，2 周内清理，不嵌套。
+### Feature Flag Lifecycle
+OFF deploy -> internal -> 5% -> 25% -> 50% -> 100% -> cleanup. Flags need an owner and an expiry date; clean up within 2 weeks; no nesting.
 
-### 回滚计划（部署前写好）
-触发条件、步骤、数据库回滚、时间预算。灰度阈值表：错误率 >2x 基线即回滚、P95 >50% 即回滚。
+### Rollback Plan (Write It Before Deploying)
+Trigger conditions, steps, database rollback, time budget. Canary threshold table: error rate >2x baseline -> roll back; P95 >50% -> roll back.
 
-### 上线后首小时验证
-health check、错误率、延迟、关键流、日志、回滚演练。
+### First-Hour Post-Launch Verification
+Health check, error rate, latency, critical flows, logs, rollback drill.
 
-## git 收尾纪律
+## Git Wrap-Up Discipline
 
-- 不在 main/master 上直接开工；开工前建隔离 worktree。
-- 收尾呈现 3 选项给人（本地合并/推 PR/保留）；合并后必须在合并结果上重跑测试（"绿跑只证明它所跑的那棵树"）。
-- 原子提交：一个逻辑事一个提交；消息写 why 不写 what；提交即保存点（测试过→提交，失败→回退）。
-- semver 是承诺；tag 是真相源；提交前卫生（`git diff --staged`、grep secrets）。
+- Don't start work directly on main/master; create an isolated worktree before starting.
+- At wrap-up, present 3 options to a human (merge locally / push a PR / keep); after merging, re-run tests on the merged result ("a green run only proves the tree it ran on").
+- Atomic commits: one logical change per commit; write why in the message, not what; a commit is a save point (tests pass -> commit; fail -> revert).
+- semver is a promise; tags are the source of truth; hygiene before committing (`git diff --staged`, grep for secrets).
 
-## 自检五轴（ECC agent-self-evaluation）
+## Five-Axis Self-Check (ECC agent-self-evaluation)
 
-任务后五轴自评（准确性/完整性/清晰性/可行动性/简洁性），每轴要具体证据，1-5 分记分卡——不是 pass/fail 门，而是防过度自信的反思步。
+After the task, self-assess on five axes (accuracy/completeness/clarity/actionability/conciseness), each axis backed by concrete evidence, on a 1-5 scorecard. Not a pass/fail gate but a reflection step against overconfidence.
 
-## 关键句
+## Key Sentences
 
 - "Evidence before claims, always."
 - "If you haven't run the verification command in this message, you cannot claim it passes."

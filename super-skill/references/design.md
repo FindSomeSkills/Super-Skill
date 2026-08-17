@@ -1,57 +1,57 @@
-# Design Playbook：UI/UX 与品味
+# Design Playbook: UI/UX and Taste
 
-> 融合：taste-skill（好品味）、ui-ux-pro-max（设计智能）、Waza/ui（观点界面）、ConardLi web-design-engineer（反 AI 味推理链）、jakubkrehel（界面细节）、Anthropic frontend-design（设计即手艺）。
+> Distilled from: taste-skill (good taste), ui-ux-pro-max (design intelligence), Waza/ui (opinionated interfaces), ConardLi web-design-engineer (anti-AI-flavor reasoning chain), jakubkrehel (interface details), Anthropic frontend-design (design as craft).
 
-## 流程：读房间 → 方向声明 → 设计 → 反俗套自检
+## Process: Read the Room → State a Direction → Design → Anti-Cliché Self-Check
 
-### 1. 读房间（Brief Inference）
-先做 Brief Inference：页面种类/氛围词/参考信号/受众/既有品牌资产/安静约束。**"The audience picks the aesthetic, not your taste."** 用记忆里的用户偏好作 hint。
+### 1. Read the Room (Brief Inference)
+Run Brief Inference first: page type / vibe words / reference signals / audience / existing brand assets / quiet constraints. **"The audience picks the aesthetic, not your taste."** Use remembered user preferences as hints.
 
-### 2. 方向声明（先写再画）
-写三行：视觉论点 / 内容计划 / 交互论点。锁定五个维度：用户场景、美学方向、设计签名、硬约束、签名微交互。固定禁用（默认提示词痕迹）：厚侧边强调条、渐变文字、玻璃卡片、紫→蓝/青暗色渐变、`transition: all`、纯黑 #000、霓虹外发光、自定义鼠标光标、div 拼的假截图、假版本号 footer。
+### 2. State the Direction (Write Before You Draw)
+Write three lines: the visual thesis / the content plan / the interaction thesis. Lock five dimensions: user scenario, aesthetic direction, design signature, hard constraints, signature micro-interactions. Permanently banned (default-prompt tells): thick side accent bars, gradient text, glass cards, purple-to-blue/cyan dark gradients, `transition: all`, pure black #000, neon outer glows, custom mouse cursors, fake screenshots assembled from divs, fake version-number footers.
 
-### 3. 调设计拨盘（ConardLi 五档）
-visual-variance / motion-intensity / information-density / asset-dependence / brand-fidelity，各 1-10 作为决策变量，不靠感觉。
+### 3. Turn the Design Dials (ConardLi's Five Dials)
+visual-variance / motion-intensity / information-density / asset-dependence / brand-fidelity, each 1-10 as a decision variable, not a gut feel.
 
-### 4. 反 AI 俗套清单（机械 pre-flight）
-- **字体**：Inter 默认→换 Geist/Satoshi/Cabinet Grotesk；**Fraunces 与 Instrument Serif 直接封禁**；无衬线才是默认（"sans display fonts are not boring"）；不往无衬线标题里塞衬线词。
-- **排版**：em-dash 零容忍；eyebrow 小标签每 3 节最多 1 个；split-header 默认禁用；zigzag 图文交替≤2 段；hero 底部装饰文本条（BRAND. MOTION. SPATIAL.）禁用；"Scroll ↓"、旋转竖排文字、装饰十字准线禁用。
-- **文案**：假品牌名（Acme/Nexus）、假精确数字（99.99%）、空洞动词（Elevate/Seamless/Unleash）、"Quietly in use at"、信任 logo 墙、Step 1/2/3 标签、装饰状态圆点——全部禁用。
-- **布局**：三张等宽特性卡片、处处玻璃拟态、bento 空洞白卡、"01/INDEX" 节编号——禁用。
+### 4. Anti-AI-Cliché Checklist (Mechanical Pre-Flight)
+- **Typography**: Inter by default → switch to Geist/Satoshi/Cabinet Grotesk; **Fraunces and Instrument Serif are outright banned**; sans is the default ("sans display fonts are not boring"); don't stuff serif words into sans headlines.
+- **Composition**: zero tolerance for em-dash; at most 1 eyebrow label per 3 sections; split-header disabled by default; zigzag image/text alternation ≤2 blocks; decorative text strips at the bottom of heroes (BRAND. MOTION. SPATIAL.) banned; "Scroll ↓", rotated vertical text, and decorative crosshairs banned.
+- **Copy**: fake brand names (Acme/Nexus), fake precise numbers (99.99%), empty verbs (Elevate/Seamless/Unleash), "Quietly in use at", trust logo walls, Step 1/2/3 labels, decorative status dots: all banned.
+- **Layout**: three equal-width feature cards, glassmorphism everywhere, hollow bento white cards, "01/INDEX" section numbering: banned.
 
-### 5. 机械检查（硬性）
-eyebrow 计数、CTA 不许换行、hero 副标题 ≤20 词、按钮对比度 ≥4.5:1、8 节页面至少 4 种布局家族、同类 CTA 意图全页只用一个文案、焦点环不可删、reduced-motion 尊重、移动端无横向滚动。
+### 5. Mechanical Checks (Hard Rules)
+eyebrow count, CTAs never wrap, hero subtitle ≤20 words, button contrast ≥4.5:1, a page with 8 sections uses at least 4 layout families, one copy for the same CTA intent across the whole page, focus rings never removed, reduced-motion respected, no horizontal scrolling on mobile.
 
-### 5.5 品牌资产协议（Asset > Spec）
-logo 不可妥协（找不到就停下问用户，不用色块顶替）；产品图用真实图（禁 CSS 剪影）；素材获取顺序：官方 press kit → yt-dlp 抽帧 → 应用商店截图 → 其他；资产登记进 `brand-spec.md`。占位符哲学："A placeholder signals 'real material needed here.' A fake signals 'I cut corners.'"
+### 5.5 Brand Asset Protocol (Asset > Spec)
+The logo is non-negotiable (if you can't find it, stop and ask the user; don't substitute a color block); product images must be real (CSS silhouettes banned); asset sourcing order: official press kit → yt-dlp frame extraction → app store screenshots → anything else; register assets in `brand-spec.md`. Placeholder philosophy: "A placeholder signals 'real material needed here.' A fake signals 'I cut corners.'"
 
-### 6. 轮换规则
-上次项目用了什么色板/衬线，这次必须换族（"不能同排三个"差异化方向）。真实素材优先：生图工具 > 真实图 > 明确占位槽。**"A placeholder signals 'real material needed here.' A fake signals 'I cut corners.'"**
+### 6. Rotation Rules
+Whatever palette/serif the last project used, this one must switch families (the "no three of the same in a row" differentiation direction). Real assets take priority: image-generation tools > real images > explicit placeholder slots. **"A placeholder signals 'real material needed here.' A fake signals 'I cut corners.'"**
 
-## UI 优先级表（1-10，不可倒置）
+## UI Priority Table (1-10, Cannot Be Reordered)
 
-1 无障碍（对比 4.5:1、alt、键盘导航、焦点环）→ 2 触控交互（44×44px、加载反馈、不只靠 hover）→ 3 性能（WebP/AVIF、懒加载、CLS<0.1）→ 4 风格一致性（SVG 图标、emoji 不当图标）→ 5 响应式（移动优先）→ 6 排版颜色（16px 基数、行高 1.5、语义 token、不用裸 hex）→ 7 动画（时序随语境、出口比入口快）→ 8 表单（可见标签、错误就近、渐进披露）→ 9 导航（可预测返回、深链）→ 10 图表（图例、不只靠颜色）。
+1 Accessibility (contrast 4.5:1, alt text, keyboard navigation, focus rings) → 2 Touch interaction (44×44px targets, loading feedback, not hover-only) → 3 Performance (WebP/AVIF, lazy loading, CLS <0.1) → 4 Style consistency (SVG icons, no emoji as icons) → 5 Responsive (mobile first) → 6 Typography & color (16px base, line height 1.5, semantic tokens, no raw hex) → 7 Motion (timing follows context, exits faster than entrances) → 8 Forms (visible labels, errors next to fields, progressive disclosure) → 9 Navigation (predictable back, deep links) → 10 Charts (legends, not color alone).
 
-## 界面细节（jakubkrehel）
+## Interface Details (jakubkrehel)
 
-- 同心圆角（outer=inner+padding）；光学对齐优于几何对齐。
-- 阴影表层次、边框表结构；按压 `scale(0.96)`；动画可中断。
-- 图标切换用精确值（scale 0.25→1, opacity 0→1, blur 4px→0）。
-- "What feels off at 10% speed is what's subtly wrong at full speed."（10% 速度回放动画审查）
-- 主题切换抑制 transition：注入-重排-移除技巧。
-- "No ARIA is better than bad ARIA"；`focus-visible`；纯颜色传义一票 HIGH。
+- Concentric corner radii (outer = inner + padding); optical alignment beats geometric alignment.
+- Shadows express elevation, borders express structure; press states use `scale(0.96)`; animations are interruptible.
+- Icon transitions use exact values (scale 0.25→1, opacity 0→1, blur 4px→0).
+- "What feels off at 10% speed is what's subtly wrong at full speed." (review animations by replaying at 10% speed)
+- Suppress transitions on theme switch: the inject-reflow-remove trick.
+- "No ARIA is better than bad ARIA"; use `focus-visible`; color-only communication is an instant HIGH.
 
-## 技术纪律
+## Technical Discipline
 
-- **永不假设技术栈**：从 package.json 检测，检测不到就问（硬编码默认会静默错误路由所有建议）。
-- 数据驱动：有可检索风格库/调色板/字体配对就检索，**零结果不许编造**（明说来自内置默认）。
-- 检索结果只是建议，不覆盖用户与仓库规则。
-- 设计 token 优先于裸值；禁裸 z-index；组件组合、utility-first、移动优先。
+- **Never assume the stack**: detect it from package.json; if detection fails, ask (a hardcoded default silently misroutes every suggestion).
+- Data-driven: if a searchable style library/palette/font pairing exists, search it; **zero results means no fabrication** (say plainly that it came from the built-in defaults).
+- Search results are suggestions only; they never override user and repository rules.
+- Design tokens over raw values; no bare z-index; component composition, utility-first, mobile first.
 
-## 关键句
+## Key Lines
 
 - "If it could have been generated by a default prompt, it is not good enough."
 - "The bar is 'stunning,' not 'functional.' Every pixel is intentional, every interaction is deliberate."
 - "Color hex codes alone are not a brand — they're the cheapest part of the identity."
 - "Em-dash (—) is COMPLETELY banned. It is the LLM's signature stylistic crutch."
-- "Motion claimed, motion shown."（声明高动效就必须真动，动效必须有动机）
+- "Motion claimed, motion shown." (if you claim bold motion, it must actually move; every animation needs a motive)
