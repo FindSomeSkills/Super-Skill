@@ -29,14 +29,23 @@ Design principle: the main file holds principles and routing only; depth lives i
 
 ## How to use
 
-The format is compatible with Claude Code SKILL.md (YAML frontmatter plus Markdown body). Drop it into your agent's skills directory:
+The format is compatible with Claude Code SKILL.md (YAML frontmatter plus Markdown body). It is plain Markdown text, so it works on macOS, Linux, and Windows with any agent that reads a skills directory. Drop it into your agent's skills directory:
 
 ```bash
-# DeepSeek Harness
+# DeepSeek Harness (macOS / Linux)
 cp -R super-skill ~/.dsh/skills/
 
-# Claude Code
+# DeepSeek Harness (Windows PowerShell)
+Copy-Item -Recurse super-skill $env:USERPROFILE\.dsh\skills\
+
+# Claude Code (macOS / Linux)
 cp -R super-skill ~/.claude/skills/
+
+# Claude Code (Windows PowerShell)
+Copy-Item -Recurse super-skill $env:USERPROFILE\.claude\skills\
+
+# Codex CLI (macOS / Linux / Windows WSL)
+cp -R super-skill ~/.codex/skills/
 ```
 
 The skills directory hot-reloads, so new sessions pick it up directly. When a task involves multiple steps, code, research, or a deliverable, the agent reads this skill first.
